@@ -1,6 +1,5 @@
 const express = require("express")
-const fs = require("fs")
-const { fetchAllCars, fetchById, createCars, editeCarsById, deleteCarsById } = require("./utils/utils.js")
+const { fetchAllCars, fetchById, createCar, editeCarById, deleteCarById } = require("./utils/utils.js")
 
 const app = express()
 app.use(express.json())
@@ -18,10 +17,10 @@ app.get("/", (req,res)=>{
 
 app.get("/list-cars", fetchAllCars)
 
-app.get("/detail-cars/:id", fetchById)
+app.get("/detail-car/:id", fetchById)
 
-app.post("/create-cars", createCars)
+app.post("/create-car", createCar)
 
-app.put("/cars/:id", editeCarsById)
+app.put("/car/:id", editeCarById)
 
-app.delete("/cars/:id", deleteCarsById)
+app.delete("/car/:id", deleteCarById)

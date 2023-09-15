@@ -34,7 +34,7 @@ const fetchById = (req,res)=>{
     }
 }
 
-const createCars = (req,res)=>{
+const createCar = (req,res)=>{
     const create = req.body
     dataCars.unshift({
         ...create
@@ -52,7 +52,7 @@ const createCars = (req,res)=>{
     })
 }
 
-const editeCarsById = (req,res)=>{
+const editeCarById = (req,res)=>{
     const iddd = req.params.id
     const {
         plate, manufacture, model, image, rentPerDay,
@@ -105,7 +105,7 @@ const editeCarsById = (req,res)=>{
     })
 }
 
-const deleteCarsById = (req,res)=>{
+const deleteCarById = (req,res)=>{
     const id = req.params.id
 
     const deletedCars = dataCars.find((cars)=>{
@@ -131,7 +131,7 @@ const deleteCarsById = (req,res)=>{
 module.exports = {
     fetchAllCars,
     fetchById,
-    createCars,
-    editeCarsById,
-    deleteCarsById
+    createCar,
+    editeCarById,
+    deleteCarById
 }
