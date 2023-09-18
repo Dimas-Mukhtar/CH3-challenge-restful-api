@@ -3,6 +3,12 @@ const path = require("path")
 const { v4: uuidv4 } = require('uuid')
 const dataCars = require("../data/cars.json")
 
+const pingSuccesfully = (req,res)=>{
+    res.status(200).json({
+        message: "Ping Succesfully"
+    })
+}
+
 const fetchAllCars = (req,res)=>{
     try {
         res.status(200).json({
@@ -129,6 +135,7 @@ const deleteCarById = (req,res)=>{
 }
 
 module.exports = {
+    pingSuccesfully,
     fetchAllCars,
     fetchById,
     createCar,
