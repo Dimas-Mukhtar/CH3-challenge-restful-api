@@ -5,19 +5,19 @@ const carsControllers = require("../../controllers/carsControllers.js")
 router.route("/")
     .get(carsControllers.pingSuccesfully)
 
-router.route("/list-cars")
+router.route("/cars")
     .get(carsControllers.fetchAllCars)
 
-router.route("/detail-car/:id")
+router.route("/cars/:id")
     .get(carsControllers.fetchById)
 
-router.route("/create-car")
+router.route("/cars")
     .post(carsControllers.createCar)
 
-router.route("/car/:id")
+router.route("/cars/:id")
     .put(carsControllers.editeCarById)
 
-router.route("/car/:id")
+router.route("/cars/:id")
     .delete(carsControllers.deleteCarById)
 
 
