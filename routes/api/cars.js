@@ -7,18 +7,11 @@ router.route("/")
 
 router.route("/cars")
     .get(carsControllers.fetchAllCars)
-
-router.route("/cars/:id")
-    .get(carsControllers.fetchById)
-
-router.route("/cars")
     .post(carsControllers.createCar)
 
 router.route("/cars/:id")
+    .get(carsControllers.fetchById)
     .put(carsControllers.editeCarById)
-
-router.route("/cars/:id")
     .delete(carsControllers.deleteCarById)
-
 
 module.exports = router
