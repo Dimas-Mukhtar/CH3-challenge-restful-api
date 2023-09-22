@@ -1,6 +1,6 @@
 const fs = require("fs")
 const path = require("path")
-const dataCars = require("../model/cars.json")
+const dataCars = require("../models/cars.json")
 
 const pingSuccesfully = (req, res) => {
     res.status(200).json({
@@ -24,21 +24,13 @@ const fetchById = (req, res) => {
     const foundCarsData = dataCars.find((carsData) => {
         return carsData.id === id
     })
-    if (!foundCarsData) {
-        return res.status(404).json({
-            status: "NOT FOUND! make sure the id correctly",
-            message:
-                "this is an example one of the correct ID = 6e2bc663-5197-441a-957b-bc75e4a2da7c"
-        })
-    } else {
-        res.status(200).json({
-            status: "success",
-            message: `Fetch car by id ${id} succesfully`,
-            data: {
-                car: foundCarsData
-            }
-        })
-    }
+    res.status(200).json({
+        status: "success",
+        message: `Fetch car by id ${id} succesfully`,
+        data: {
+            car: foundCarsData
+        }
+    })
 }
 
 const createCar = (req, res) => {
@@ -46,7 +38,7 @@ const createCar = (req, res) => {
     dataCars.unshift({
         ...create
     })
-    const pathName = path.join(__dirname, "../model", "cars.json")
+    const pathName = path.join(__dirname, "../models", "cars.json")
     fs.writeFile(pathName, JSON.stringify(dataCars), function (err) {
         if (err) {
             console.log(err)
@@ -68,18 +60,9 @@ const editeCarById = (req, res) => {
     const foundCarsData = dataCars.findIndex((carsData) => {
         return carsData.id === iddd
     })
-
-    if (foundCarsData === -1) {
-        return res.status(404).json({
-            status: "NOT FOUND! make sure the id correctly",
-            message:
-                "this is an example one of the correct ID = 6e2bc663-5197-441a-957b-bc75e4a2da7c"
-        })
-    }
-
     dataCars[foundCarsData] = { ...dataCars[foundCarsData], ...req.body }
 
-    const pathName = path.join(__dirname, "../model", "cars.json")
+    const pathName = path.join(__dirname, "../models", "cars.json")
     fs.writeFile(pathName, JSON.stringify(dataCars), function (err) {
         if (err) {
             console.log(err)
@@ -101,18 +84,9 @@ const deleteCarById = (req, res) => {
     const foundCarsData = dataCars.findIndex((carsData) => {
         return carsData.id === id
     })
-
-    if (foundCarsData === -1) {
-        return res.status(404).json({
-            status: "NOT FOUND! make sure the id correctly",
-            message:
-                "this is an example one of the correct ID = 6e2bc663-5197-441a-957b-bc75e4a2da7c"
-        })
-    }
-
     dataCars.splice(foundCarsData, 1)
 
-    const pathName = path.join(__dirname, "../model", "cars.json")
+    const pathName = path.join(__dirname, "../models", "cars.json")
     fs.writeFile(pathName, JSON.stringify(dataCars), function (err) {
         if (err) {
             console.log(err)

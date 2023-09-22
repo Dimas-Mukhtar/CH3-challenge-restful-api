@@ -1,3 +1,4 @@
-Ada yang request pada: 20230921-14:28:19	 informasi request: url = /, method = GET
-Ada yang request pada: 20230921-14:44:47	 informasi request: url = /cars, method = GET
-Ada yang request pada: 20230921-14:44:57	 informasi request: url = /, method = GET
+Ada yang request pada: 2023-09-22--23:17:02	 informasi request: url = /cars, method = GET
+Ada yang request pada: 2023-09-22--23:17:11	 informasi request: url = /cars/6e2bc663-5197-441a-957b-bc75e4a2da7c, method = DELETE
+Ada yang request pada: 2023-09-22--23:17:15	 informasi request: url = /cars, method = GET
+Ada yang request pada: 2023-09-22--23:19:27	 informasi request: url = /cars, method = GET
